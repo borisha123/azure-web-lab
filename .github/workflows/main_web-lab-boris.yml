@@ -24,11 +24,12 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
+      # Promijeni u folder gdje je tvoj .csproj
       - name: Build with dotnet
-        run: dotnet build --configuration Release
+        run: dotnet build MyApp/MyApp.csproj --configuration Release
 
       - name: Publish with dotnet
-        run: dotnet publish -c Release -o ./publish
+        run: dotnet publish MyApp/MyApp.csproj -c Release -o ./publish
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
